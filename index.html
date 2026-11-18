@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SugeySpotify · Sugey Yala</title>
+<meta name="description" content="Reproductor de música ambientado en la UNI: Sugey Yala, el álbum UNI LLENO DE BURROS, éxitos anime y gamer, audio 3D y DJ con IA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A3172F'/%3E%3Cpath d='M20 12l6 16h12l6-16 2 20c0 10-6 18-14 18s-14-8-14-18z' fill='%23F3EDE4'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- Iconos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z" fill="currentColor"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="4" width="4.5" height="16" rx="1.2" fill="currentColor"/><rect x="14" y="4" width="4.5" height="16" rx="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M5 5.5v13a.8.8 0 0 0 1.2.7L16 13v5.5a1 1 0 0 0 2 0v-13a1 1 0 0 0-2 0V11L6.2 4.8A.8.8 0 0 0 5 5.5z" fill="currentColor"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M19 5.5v13a.8.8 0 0 1-1.2.7L8 13v5.5a1 1 0 0 1-2 0v-13a1 1 0 0 1 2 0V11l9.8-6.2a.8.8 0 0 1 1.2.7z" fill="currentColor"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M16 4h4v4M4 20l16-16M20 16v4h-4M15 15l5 5M4 4l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M3 11V9a4 4 0 0 1 4-4h13M7 22l-3-3 3-3M21 13v2a4 4 0 0 1-4 4H4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.7 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-heart-f" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.7 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2z" fill="currentColor"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-lib" viewBox="0 0 24 24"><path d="M4 3v18M9 3v18M14 4l6 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2l2.2 6.3L20.5 10l-6.3 2.2L12 18.5l-2.2-6.3L3.5 10l6.3-1.7zM19 15l.9 2.6 2.6.9-2.6.9L19 22l-.9-2.6-2.6-.9 2.6-.9z" fill="currentColor"/></symbol>
+  <symbol id="i-lyrics" viewBox="0 0 24 24"><path d="M4 5h16M4 10h10M4 15h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17.5" cy="17" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20.5 17V9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-queue" viewBox="0 0 24 24"><path d="M3 6h13M3 12h13M3 18h8M18 14v7l4-3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+  <symbol id="i-3d" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3" fill="none" stroke="currentColor" stroke-width="2"/><rect x="2.5" y="14" width="4.5" height="7" rx="1.5" fill="currentColor"/><rect x="17" y="14" width="4.5" height="7" rx="1.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="10.5" ry="3" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 2"/></symbol>
+  <symbol id="i-echo" viewBox="0 0 24 24"><path d="M3 12h2M7 8v8M11 5v14M15 8v8M19 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-bass" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="14" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="7" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-vol" viewBox="0 0 24 24"><path d="M4 9h3l5-4v14l-5-4H4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9h3l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-stage" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-verified" viewBox="0 0 24 24"><path d="M12 1.5l2.6 2 3.2-.3.9 3.1 2.8 1.6-1 3.1 1 3.1-2.8 1.6-.9 3.1-3.2-.3-2.6 2-2.6-2-3.2.3-.9-3.1L2.5 14l1-3.1-1-3.1 2.8-1.6.9-3.1 3.2.3z" fill="#E7B84A"/><path d="M8 12.2l2.6 2.6L16.2 9" fill="none" stroke="#14080B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-voice" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-2.5-6.5z" fill="currentColor"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9v6l5-3z" fill="#14080B"/></symbol>
+  <symbol id="i-burro" viewBox="0 0 64 64"><path d="M18 4c3 0 5 6 6 14l2 3h12l2-3c1-8 3-14 6-14s3 9 0 19l-1 3c3 3 4 7 4 12 0 12-8 22-17 22S15 50 15 38c0-5 1-9 4-12l-1-3c-3-10-3-19 0-19z" fill="currentColor"/><ellipse cx="32" cy="48" rx="10" ry="8" fill="#F3EDE4" opacity=".9"/><circle cx="25" cy="34" r="2.6" fill="#14080B"/><circle cx="39" cy="34" r="2.6" fill="#14080B"/><circle cx="28.5" cy="48" r="1.6" fill="#14080B"/><circle cx="35.5" cy="48" r="1.6" fill="#14080B"/></symbol>
+</svg>
+
+<canvas id="bg3d" aria-hidden="true"></canvas>
+
+<div class="app" id="app">
+  <aside class="side" aria-label="Navegación">
+    <a class="brand" href="#home" data-nav="home" aria-label="SugeySpotify, inicio">
+      <svg class="brand-mark"><use href="#i-burro"/></svg>
+      <span>SugeySpotify</span>
+    </a>
+    <nav class="nav">
+      <button data-nav="home" class="on"><svg><use href="#i-home"/></svg>Inicio</button>
+      <button data-nav="search"><svg><use href="#i-search"/></svg>Buscar</button>
+      <button data-nav="library"><svg><use href="#i-lib"/></svg>Tu biblioteca</button>
+      <button data-nav="ai" class="nav-ai"><svg><use href="#i-spark"/></svg>DJ Yala y Compositora IA</button>
+    </nav>
+    <div class="side-lib">
+      <h2>Tus playlists</h2>
+      <ul id="sideLists"></ul>
+    </div>
+    <button class="bray" id="brayBtn" title="Suena un rebuzno"><svg><use href="#i-burro"/></svg>Rebuznar</button>
+  </aside>
+
+  <main class="main" id="main">
+    <header class="topbar">
+      <div class="hist">
+        <button class="round" id="backBtn" aria-label="Atrás"><svg><use href="#i-left"/></svg></button>
+        <button class="round" id="fwdBtn" aria-label="Adelante"><svg><use href="#i-right"/></svg></button>
+      </div>
+      <label class="search-top">
+        <svg><use href="#i-search"/></svg>
+        <input id="topSearch" type="search" placeholder="¿Qué quieres escuchar?" autocomplete="off">
+      </label>
+      <button class="pill-btn" id="stageBtn"><svg><use href="#i-stage"/></svg><span>Modo escenario</span></button>
+      <div class="avatar" title="Tu cuenta">TÚ</div>
+    </header>
+    <div id="view" class="view"></div>
+  </main>
+
+  <aside class="panel" id="panel" aria-label="Panel lateral" hidden>
+    <div class="panel-head">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tab="lyrics" class="on">Letra</button>
+        <button role="tab" data-tab="queue">Cola</button>
+      </div>
+      <button class="round sm" id="panelClose" aria-label="Cerrar panel"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="panel-body" id="panelBody"></div>
+  </aside>
+
+  <footer class="player" id="player">
+    <div class="np">
+      <div class="np-cover" id="npCover"></div>
+      <div class="np-meta">
+        <div class="np-title" id="npTitle">Elige una canción</div>
+        <div class="np-artist" id="npArtist">SUGEY YALA</div>
+      </div>
+      <button class="ico" id="likeBtn" aria-label="Me gusta"><svg><use href="#i-heart"/></svg></button>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-btns">
+        <button class="ico" id="shufBtn" aria-label="Aleatorio"><svg><use href="#i-shuffle"/></svg></button>
+        <button class="ico" id="prevBtn" aria-label="Anterior"><svg><use href="#i-prev"/></svg></button>
+        <button class="play-main" id="playBtn" aria-label="Reproducir"><svg><use href="#i-play"/></svg></button>
+        <button class="ico" id="nextBtn" aria-label="Siguiente"><svg><use href="#i-next"/></svg></button>
+        <button class="ico" id="repBtn" aria-label="Repetir"><svg><use href="#i-repeat"/></svg></button>
+      </div>
+      <div class="seek">
+        <span id="tCur">0:00</span>
+        <div class="bar" id="seekBar" role="slider" aria-label="Posición" tabindex="0"><div class="bar-fill" id="seekFill"></div></div>
+        <span id="tDur">0:00</span>
+      </div>
+    </div>
+    <div class="fx">
+      <button class="ico" id="lyrBtn" aria-label="Letra" title="Letra"><svg><use href="#i-lyrics"/></svg></button>
+      <button class="ico" id="queueBtn" aria-label="Cola" title="Cola"><svg><use href="#i-queue"/></svg></button>
+      <button class="ico fx-t" id="sp3dBtn" title="Audio 3D: el sonido gira alrededor de tu cabeza (usa audífonos)"><svg><use href="#i-3d"/></svg><b>3D</b></button>
+      <button class="ico fx-t" id="echoBtn" title="Eco del Pabellón"><svg><use href="#i-echo"/></svg></button>
+      <button class="ico fx-t" id="bassBtn" title="Bajos potentes"><svg><use href="#i-bass"/></svg></button>
+      <button class="ico fx-t on" id="djBtn" title="Voz del DJ Yala entre canciones"><svg><use href="#i-voice"/></svg></button>
+      <button class="ico" id="muteBtn" aria-label="Silenciar"><svg><use href="#i-vol"/></svg></button>
+      <div class="bar vol" id="volBar" role="slider" aria-label="Volumen" tabindex="0"><div class="bar-fill" id="volFill" style="width:80%"></div></div>
+    </div>
+  </footer>
+
+  <nav class="mnav" aria-label="Navegación móvil">
+    <button data-nav="home" class="on"><svg><use href="#i-home"/></svg>Inicio</button>
+    <button data-nav="search"><svg><use href="#i-search"/></svg>Buscar</button>
+    <button data-nav="library"><svg><use href="#i-lib"/></svg>Biblioteca</button>
+    <button data-nav="ai"><svg><use href="#i-spark"/></svg>IA</button>
+  </nav>
+</div>
+
+<!-- Modo escenario -->
+<div class="stage" id="stage" hidden>
+  <button class="pill-btn stage-exit" id="stageExit"><svg><use href="#i-close"/></svg>Salir del escenario</button>
+  <div class="stage-meta">
+    <div class="stage-kicker" id="stageKicker">Ahora suena</div>
+    <div class="stage-title" id="stageTitle">SUGEY YALA</div>
+    <div class="stage-lyric" id="stageLyric"></div>
+  </div>
+</div>
+
+<!-- Reproductor de YouTube (debe quedar visible mientras suena) -->
+<div class="yt-card" id="ytCard" hidden>
+  <div class="yt-head"><svg><use href="#i-yt"/></svg><span id="ytLabel">YouTube</span></div>
+  <div class="yt-frame"><div id="ytPlayer"></div></div>
+</div>
+
+<!-- DJ hablando -->
+<div class="dj-bubble" id="djBubble" hidden><svg><use href="#i-spark"/></svg><span id="djText"></span></div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<input type="file" id="fileIn" accept="audio/*" multiple hidden>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/scene3d.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/views.js"></script>
+<script src="js/app.js"></script>
+<script src="https://www.youtube.com/iframe_api" async></script>
+</body>
+</html>
